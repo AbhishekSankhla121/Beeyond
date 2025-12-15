@@ -1,7 +1,7 @@
 {
     "name": "backend Application",
     "dockerComposeFile": "../compose.yaml",
-    "service": "url-backend",
+    "service": "beeyond-backend",
     "workspaceFolder":  "/app",
     "shutdownAction": "none",
     "forwardPorts": [
