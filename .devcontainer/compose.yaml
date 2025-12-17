@@ -19,8 +19,8 @@ services:
       - DATABASE_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/abhishek?authSource=admin
       - FRONTEND_URL=http://localhost:3000
       - JWT_SECRET=super-secret-key-123
-    # command: sleep infinity
-    command: ['npx','nodemon','index.js']
+    command: sleep infinity
+    # command: ['npx','nodemon','index.js']
 
 # define frontend-service 
   beeyond-frontend:
