@@ -2,8 +2,7 @@
   "name": "Frontend Application",
   "dockerComposeFile": "../compose.yaml",
   "service": "beeyond-frontend",
-   "workspaceFolder": "/usr/src/beeyond-frontend",
-  "shutdownAction": "stopCompose",
+  "workspaceFolder": "/app",
   "forwardPorts": [3000],
   "remoteUser": "root",
   "customizations": {
@@ -24,14 +23,7 @@
         "prisma.prisma",
         "eamodio.gitlens",
         "cweijan.vscode-redis-client"
-      ],
-      "settings": {
-        "editor.formatOnSave": true,
-        "editor.tabSize": 2,
-        "files.eol": "\n",
-        "terminal.integrated.shell.linux": "/bin/bash"
-      }
+      ]
     }
-  },
-
+  }
 }
