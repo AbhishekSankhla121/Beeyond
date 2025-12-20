@@ -6,7 +6,7 @@ services:
       context: "../beeyond-backend/"
       dockerfile: "Dockerfile"
     volumes:
-      - ..:/workspace:cached
+      - ..:/Beeyond:cached
     networks:
       - beeyond-network
     ports:
@@ -27,7 +27,7 @@ services:
       context: "../beeyond-frontend"
       dockerfile: 'Dockerfile'
     volumes:
-      - ..:/workspace:cached
+      - ..:/Beeyond:cached
     networks:
       - beeyond-network
     ports:

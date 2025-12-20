@@ -2,7 +2,7 @@
   "name": "Frontend Application",
   "dockerComposeFile": "../compose.yaml",
   "service": "beeyond-frontend",
-  "workspaceFolder": "/workspace/beeyond-frontend",
+  "workspaceFolder": "/Beeyond/beeyond-frontend",
   "forwardPorts": [3000],
   "remoteUser": "node",
   "customizations": {
