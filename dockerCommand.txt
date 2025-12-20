@@ -1,8 +1,0 @@
-cd beeyond-frontend
-
-docker buildx build  --build-arg REACT_APP_SERVER_URL=http://localhost:7000 -t beeyond-frontend --no-cache .
-docker run -d --name frontend --network beeyond_devcontainer_beeyond-network -p 8000:3000   beeyond-frontend 
-
-cd beeyond-backend
-docker buildx build -t beeyond-backend --no-cache .
-docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 7000:5000 -e PORT='5000' -e DEV_ENVIROMENT_DATABASE_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/abhishek?authSource=admin -e FRONTEND_URL=http://localhost:8000 -e JWT_SECRET=super-secret-key-123   beeyond-backend 
