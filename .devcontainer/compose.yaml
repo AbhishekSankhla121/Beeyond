@@ -34,6 +34,8 @@ services:
       - 3000:3000
     depends_on:
       - beeyond-backend
+    enviroment:
+      - REACT_APP_SERVER_URL=http://localhost:5000
     command: sleep infinity
 
 # define mongo servcice 
