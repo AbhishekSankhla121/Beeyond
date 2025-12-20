@@ -23,3 +23,5 @@ Follow these steps to set up the application:
 8️⃣ Done! 🎉
 
 Your application is now fully set up inside Docker Dev Containers. 
+
+<!--  git submodule update --remote -->
