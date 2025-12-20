@@ -26,6 +26,8 @@ services:
     build:
       context: "../beeyond-frontend"
       dockerfile: 'Dockerfile'
+      args:
+        REACT_APP_SERVER_URL: http://beeyond-backend:5000
     volumes:
       - ..:/Beeyond:cached
     networks:
@@ -34,8 +36,6 @@ services:
       - 3000:3000
     depends_on:
       - beeyond-backend
-    enviroment:
-      - REACT_APP_SERVER_URL=http://localhost:5000
     command: sleep infinity
 
 # define mongo servcice 
