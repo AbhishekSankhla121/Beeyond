@@ -22,3 +22,24 @@ jobs:
         with: 
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Build and push backend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./beeyond-backend
+          file: ./beeyond-backend/Dockerfile
+          push: true
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/beeyond-backend:latest
+
+
+      - name: Build and push frontend image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./beeyond-frontend
+          file: ./beeyond-frontend/Dockerfile
+          push: true
+          build-args: |
+            REACT_APP_SERVER_URL=${{ secrets.REACT_APP_SERVER_URL }}
+          tags: |
+            ${{ secrets.DOCKER_USERNAME }}/beeyond-frontend:latest
