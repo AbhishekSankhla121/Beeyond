@@ -1,0 +1,8 @@
+[submodule "beeyond-backend"]
+	path = beeyond-backend
+	url = https://github.com/AbhishekSankhla121/beeyond-backend
+	branch = main
+[submodule "beeyond-frontend"]
+	path = beeyond-frontend
+	url = https://github.com/AbhishekSankhla121/beeyond-frontend
+	branch = main
