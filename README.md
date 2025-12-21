@@ -2,6 +2,8 @@ References:
 Architecture reference: https://github.com/AbhishekSankhla121/Beeyond/blob/main/Architecture.png
 application setup reference:
 - https://github.com/AbhishekSankhla121/Beeyond/blob/main/ApplicationSetup.md
+- https://github.com/AbhishekSankhla121/Beeyond/blob/main/dockerCommand.
+
 
 
 🚀 Beeyond – Full Stack Application 📦 GitHub Repositories
