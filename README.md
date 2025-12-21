@@ -40,11 +40,6 @@ Backend API (Node.js + Express)
 - Clean separation of concerns
 - Horizontally scalable architecture
 
----
-
-## Frontend Architecture (React)
-
-### Folder Structure
 
 
 ---

@@ -1,5 +1,6 @@
 <!-- run application on you local machine -->
-
+Part 2 (Optional)
+Video link:📎 https://drive.google.com/file/d/110MGbytl7zUgGaFMGfxQqYONtKTuHCAO/view?usp=sharing
 <!-- change directory to beeyon-frontend -->
 cd beeyond-frontend
 
@@ -20,6 +21,9 @@ docker buildx build -t beeyond-backend --no-cache .
 docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5000:5000 -e PORT='5000' -e DEV_ENVIROMENT_DATABASE_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/abhishek?authSource=admin -e FRONTEND_URL=http://localhost:3000 -e JWT_SECRET=super-secret-key-123   beeyond-backend 
 
 <!-- Alternative option -->
+💻 Run Application on Local Machine (Without DevContainer)
+
+video link: 📎 https://drive.google.com/file/d/1pL-SnXvZHr3vHz9Cx4hqBAjWrv9Xo6XZ/view?usp=sharing
 <!-- move root or parent directory -->
 <!-- run command -->
 docker compose -f compose.yaml up --build --force-recreate -d
