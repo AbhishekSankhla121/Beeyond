@@ -65,6 +65,5 @@ jobs:
       - name: Cleanup Docker & SSH
         if: always()
         run: |
-          docker image prune -f
           docker logout
           rm -rf ~/.ssh
