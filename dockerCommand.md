@@ -23,3 +23,4 @@ docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5
 <!-- move root or parent directory -->
 <!-- run command -->
 docker compose -f compose.yaml up --build --force-recreate -d
+<!-- check ci pipeline-->
