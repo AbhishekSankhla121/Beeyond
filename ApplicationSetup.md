@@ -24,4 +24,7 @@ Follow these steps to set up the application:
 
 Your application is now fully set up inside Docker Dev Containers. 
 
-<!--  git submodule update --remote -->
+<!-- **important note** -->
+- Make sure you install all required Node.js dependencies by running: : npm i 
+- Create a .env file by copying the contents of example.env: cp example.env .env
+
