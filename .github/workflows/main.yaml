@@ -39,6 +39,7 @@ jobs:
           context: ./beeyond-frontend
           file: ./beeyond-frontend/Dockerfile
           push: true
+          no-cache: true
           build-args: |
             REACT_APP_SERVER_URL=${{ secrets.REACT_APP_SERVER_URL }}
           tags: |
