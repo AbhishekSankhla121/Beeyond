@@ -24,7 +24,7 @@ services:
       context: "/beeyond-frontend"
       dockerfile: 'Dockerfile'
       args:
-        REACT_APP_SERVER_URL: http://beeyond-backend:5000
+        REACT_APP_SERVER_URL: http://localhost:5000
     networks:
       - beeyond-network
     ports:
