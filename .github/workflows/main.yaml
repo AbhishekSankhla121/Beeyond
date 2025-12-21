@@ -44,3 +44,14 @@ jobs:
             REACT_APP_SERVER_URL=${{ secrets.REACT_APP_SERVER_URL }}
           tags: |
             ${{ secrets.DOCKER_USERNAME }}/beeyond-frontend:latest
+
+      - name: Setup SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H 34.228.169.11 >> ~/.ssh/known_hosts
+
+      - name: Test SSH connection
+        run: |
+          ssh -i ~/.ssh/id_rsa ec2-user@34.228.169.11 "echo SSH connected"
