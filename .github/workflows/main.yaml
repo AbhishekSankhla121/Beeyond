@@ -54,4 +54,14 @@ jobs:
 
       - name: Test SSH connection
         run: |
-          ssh -i ~/.ssh/id_rsa ec2-user@34.228.169.11 "echo SSH connected"
+          ssh -i ~/.ssh/id_rsa ec2-user@34.228.169.11 << 'EOF'
+          echo "SSH connected"
+          docker ps
+          docker ps
+          EOF
+
+      - name: Cleanup Docker & SSH
+        if: always()
+        run: |
+          docker logout
+          rm -rf ~/.ssh
