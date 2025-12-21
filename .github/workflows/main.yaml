@@ -56,7 +56,7 @@ jobs:
         run: |
           ssh -i ~/.ssh/id_rsa ec2-user@34.228.169.11 << 'EOF'
           echo "SSH connected"
-          docker ps
+          docker compose -f aws.compose.yaml --profile app up -d --force-recreate 
           docker ps
           EOF
 
