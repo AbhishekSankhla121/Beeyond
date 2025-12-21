@@ -27,4 +27,4 @@ video link: 📎 https://drive.google.com/file/d/1pL-SnXvZHr3vHz9Cx4hqBAjWrv9Xo6
 <!-- move root or parent directory -->
 <!-- run command -->
 docker compose -f compose.yaml up --build --force-recreate -d
-<!-- check ci pipeline-->
+<!-- check ci pipeline--> 
