@@ -18,7 +18,7 @@ cd beeyond-backend
 docker buildx build -t beeyond-backend --no-cache .
 
 <!-- run container -->
-docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5000:5000 -e PORT='5000' -e DEV_ENVIROMENT_DATABASE_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/abhishek?authSource=admin -e FRONTEND_URL=http://localhost:3000 -e JWT_SECRET=super-secret-key-123   beeyond-backend 
+docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5000:5000 -e PORT='5000' -e DATABASE_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/abhishek?authSource=admin -e FRONTEND_URL=http://localhost:3000 -e JWT_SECRET=super-secret-key-123   beeyond-backend 
 
 <!-- Alternative option -->
 💻 Run Application on Local Machine (Without DevContainer)
