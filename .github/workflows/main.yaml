@@ -59,7 +59,7 @@ jobs:
           docker compose -f aws.compose.yaml --profile app pull
           docker compose -f aws.compose.yaml --profile app up -d --force-recreate 
           docker ps
-          docker system prune -a
+          docker image prune -f
           EOF
 
       - name: Cleanup Docker & SSH
