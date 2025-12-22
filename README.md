@@ -73,18 +73,20 @@ Backend API (Node.js + Express)
 | Method | Endpoint                 | Description               |
 |--------|--------------------------|---------------------------|
 | POST   | /api/v1/orders           | Place an order            |
-| GET    | /api/v1/orders/my        | Get my orders             |
-| GET    | /api/v1/orders/:id       | Get order details         |
+| GET    | /api/v1/orders           | Get my orders             |
+| GET    | /api/v1/orders/:id       | Get one order details     |
+| GET    | /api/v1/product          | Get all product           |
 
 ---
 
-### Delivery Partner Routes
+### Delivery Partner Routes  
 
 | Method | Endpoint                         | Description               |
 |--------|----------------------------------|---------------------------|
-| GET    | /api/v1/orders/unassigned        | Available orders          |
-| PATCH  | /api/v1/orders/:id/accept        | Accept an order           |
-| PATCH  | /api/v1/orders/:id/status        | Update order status       |
+| GET    | /api/v1/orders                   | get unAssigned orders     |
+| POST   | /api/v1/orders                   | Accept/assign an order    |
+| PATCH  | /api/v1/orders                   | Update order status       |
+| GET    | /api/v1/me                       | Update order status       |
 
 ---
 
@@ -92,9 +94,14 @@ Backend API (Node.js + Express)
 
 | Method | Endpoint                         | Description               |
 |--------|----------------------------------|---------------------------|
-| GET    | /api/v1/admin/users              | Get all users             |
-| GET    | /api/v1/admin/orders             | Get all orders            |
-| PATCH  | /api/v1/admin/users/:id/disable  | Disable a user            |
+| Post   | /api/v1/admin/product            | create product            |
+| GET    | /api/v1/admin/get-partner        | Get all delivery partner  |
+| GET    | /api/v1/admin/order              | All Order placed by users |
+| GET    | /api/v1/admin/stats              | All stats for admin dashb |
+
+| Method | Endpoint                 | Description               |
+|--------|--------------------------|---------------------------|
+| GET    | /health                  | check application health  |
 
 ---
 
