@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: frontend
+  namespace: beeyond
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: frontend
+  template:
+    metadata:
+      labels:
+        name: frontend
+    spec:
+      imagePullSecrets:
+        - name: regcred
+    containers:
+      - name: beeyond-frontend
+        image: abhisheksankhla121/beeyond-frontend:latest

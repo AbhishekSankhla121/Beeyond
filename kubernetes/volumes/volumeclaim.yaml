@@ -1,0 +1,12 @@
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: beeyond-persistent-volume-claim
+  namespace: beeyond
+spec:
+  storageClassName: beeyond-volume
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+      storage: 300Mi

@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: mongo
+  namespace: beeyond
+spec:
+  selector:
+    matchLabels:
+      name: mongo
+  serviceName: mongo
+  replicas: 1
+  minReadySeconds: 20
+  
+  template:
+    metadata:
+      labels:
+        name: mongo
+    spec:
+      terminationGracePeriodSeconds: 20
+      volumes:
+        - name: beeyond-storage
+          persistentVolumeClaim:
+            claimName: beeyond-persistent-volume-claim
+      containers:
+        - name: mongo-container
+          image: mongo 
+          ports:
+            - containerPort: 27017
+              name: mongo
+          volumeMounts:
+            - mountPath: /data/db
+              name: beeyond-storage
+              subPath: DB
+          env:
+            - name: MONGO_INITDB_ROOT_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: MONGO_INITDB_ROOT_USERNAME
+            - name: MONGO_INITDB_ROOT_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db-secret
+                  key: MONGO_INITDB_ROOT_PASSWORD
