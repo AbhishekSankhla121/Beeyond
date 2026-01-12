@@ -1,0 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: backend
+  namespace: beeyond
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: backend
+  template:
+    metadata:
+      labels:
+        name: backend
+    spec:
+      imagePullSecrets:
+        - name: regcred
+      containers:
+        - name: beeyond-backend
+          image: abhisheksankhla121/ks-beeyond-backend:latest
+          imagePullPolicy: Always
+          env:
+            - name: DATABASE_CONNECTION_STRING
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: DATABASE_CONNECTION_STRING
+
+            - name: FRONTEND_URL
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: FRONTEND_URL
+
+            - name: PORT
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: PORT
+
+            - name: JWT_SECRET
+              valueFrom:
+                configMapKeyRef:
+                  name: backend-config
+                  key: JWT_SECRET

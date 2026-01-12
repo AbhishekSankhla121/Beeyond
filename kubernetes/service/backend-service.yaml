@@ -1,13 +1,13 @@
 apiVersion: v1
 kind: Service 
 metadata:
-  name: mongo-express-service
+  name: backend-service
   namespace: beeyond
 spec:
   type: ClusterIP
   selector:
-    app: mongo-express
+    name: backend
   ports:
-    - port: 8081
-      targetPort: 8081
+    - port: 5000
+      targetPort: 5000
 

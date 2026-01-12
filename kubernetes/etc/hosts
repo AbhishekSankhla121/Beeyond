@@ -1,0 +1,16 @@
+# cat /etc/hosts
+127.0.0.1       localhost
+127.0.1.1       kali.Abhishek   kali
+
+# The following lines are desirable for IPv6 capable hosts
+::1     localhost ip6-localhost ip6-loopback
+ff02::1 ip6-allnodes
+ff02::2 ip6-allroutes
+
+#k9s cluster node 
+10.38.23.183      k9s-master.abhishek.local       k9s-master
+10.38.20.68       k9s-worker.abhishek.local       k9s-worker
+10.38.20.67       k9s-worker1.abhishek.local      k9s-worker1
+
+10.38.20.67       beyoond.frontend.local
+10.38.20.67       beyoond.backend.local

@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend-config
+data:
+  DATABASE_CONNECTION_STRING: mongodb://admin:admin@mongo-service:27017/abhishek?authSource=admin
+  JWT_SECRET: super-secret-key-123
+  PORT: '5000'
+  FRONTEND_URL: http://beyoond.frontend.local:30856
+
