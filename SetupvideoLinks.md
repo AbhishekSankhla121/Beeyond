@@ -13,13 +13,19 @@ Frontend (Git Submodule)
 🌐 Live URLs
 
 Frontend Live URL
-🔗 https://beeyondfrontend.fazalbazar.shop/
+<!-- aws services are super expensive -->
+<!-- 🔗 https://beeyondfrontend.fazalbazar.shop/ -->
+🔗 https://beeyond-frontend.onrender.com/
 
 Backend Live API URL
-🔗 https://beeyondbackend.fazalbazar.shop/
+<!-- aws services are super expensive -->
+<!-- 🔗 https://beeyondbackend.fazalbazar.shop/ -->
+🔗 https://beeyond-backend.onrender.com
 
 WebSocket Live URL
-🔗 wss://beeyondbackend.fazalbazar.shop
+<!-- aws services are super expensive -->
+<!-- 🔗 wss://beeyondbackend.fazalbazar.shop -->
+🔗 wss://beeyond-backend.onrender.com/socket.io
 
 🛠️ Application Setup
 🧑‍💻 DevContainer Setup (For Developers)
