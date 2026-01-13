@@ -3,22 +3,30 @@ kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap  # inject the realease name inot the template 
 data:
+# why we are using the quote function every where ?
+#  converts any value into a propely quoted yaml string
   DATABASE_CONNECTION_STRING: {{ .Values.database.connectionString | default "tea" | quote }} # here instead of calling quote argument , we inverted the order , we sent the arg to the funct using a pipeleing (|) we can now chain several functions together
-  JWT_SECRET: {{ .Values.backend.jwt_secret }}
+  JWT_SECRET: {{ .Values.backend.jwt_secret | quote }}
   
 
   # using if else condition
-  {{- if eq .Values.frontend.frontend_Url "http://beyoond.frontend.local:30856" }}
-  FRONTEND_URL: "{{ .Values.frontend.frontend_Url }}"
+  {{- if eq .Values.frontend.frontend_url "http://beyoond.frontend.local:30856" }}
+  FRONTEND_URL: {{ .Values.frontend.frontend_url | quote }}
   {{- else }}
-  FRONTEND_URL: "http://beyoond.frontend.local:30856/"
+  FRONTEND_URL: {{ "http://beyoond.frontend.local:30856/" | quote }}
   {{- end }}
 
   # modifying scope using with
   # with controls the variable scoping, recall that . is the reference to the current scope . 
   # so . Values tells  the template to find the claues object in current scope
   {{- with .Values.backend }}
-  PORT: "{{ .port }}"
+  PORT: {{ .port | quote }}
   # or we can use $ for accessing the object Release.Name from the parent scope
-  REALEASE: {{ $.Release.Name }}
+  REALEASE: {{ $.Release.Name | quote }}
   {{- end }}
+
+  # Looping with range action 
+  toppings: |- # |- marjer in yaml takes multi line sting . this can be a usefule etchnique for embedding big blocks of data inside of your manifest 
+    {{- range .Values.learning.pizzaToppings }}
+      - {{ . | quote }}
+    {{- end }}
