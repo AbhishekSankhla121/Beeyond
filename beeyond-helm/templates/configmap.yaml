@@ -90,7 +90,20 @@ data:
 
 # ***
 # Subcharts and Global Values 
+#  we have been working only with one chart
+# but charts can have dependencies call subcharts
+#  they also have their own values and template 
 
-
+# 1 subchart is considered " stand alone ", which means it can never explicitly depend on its parent chart 
+# 2 subchart cannot access the value of its parent 
+# 3 parent chart can overeride values for the subcharts
 # ***
+
+
+  salad: {{ .Values.global.salad }}  # accesssing the gloobal variable
+  
+  # template commeting 
+{{- /*
+This is a comment.
+*/}}
 

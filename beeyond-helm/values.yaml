@@ -18,3 +18,20 @@ learning:
   favorite:
     drink: coffee
     food: pizza
+
+#***
+# this is parent overide the value of child sub chart in our case its /charts/subchart
+# because beeyond-helm is a parendt ,  we can specify configuration in beeyond-helm and have that configuration pushed into mysubchart
+#  modify beeyond-helm/values.yaml
+# ***
+mysubchart:
+  dessert: ice cream
+
+
+# ***
+# Global chart values
+# global vales are values that can be accessed from any chart subchart
+#  globale require explicit declaration
+# *** 
+global:
+  salad: caesor
