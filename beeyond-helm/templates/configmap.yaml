@@ -2,6 +2,10 @@ apiVersion: v1
 kind: ConfigMap
 metadata:
   name: {{ .Release.Name }}-configmap  # inject the realease name inot the template 
+  {{- template "mychart.labels" . }}    # using the template
+                                        #  while using template we need to provide the current context . to the template
+                                        #  problem with template call the function and prints immediately
+                                        #  where as using include : call the functions and returns a string , we can use piped and recommeded by helm doc
 data:
 # why we are using the quote function every where ?
 #  converts any value into a propely quoted yaml string
@@ -65,3 +69,28 @@ data:
 
   #  variables are  normally not "global"
   # they are  scoped to the block in which they are declared 
+
+  {{- include "mychart.labels" . }} # using include function to use the named template 
+                                    # where as using include : call the functions and returns a string , we can use piped and recommeded by helm doc    
+
+
+#*** 
+# Accessing Files Inside Templates
+# this makes it easy to import one template from within another template 
+#***
+
+  {{- $fileName := .Files }}
+  {{- range tuple "config1.toml" "config2.toml" "config.toml" }}
+  {{ . }}: |-
+    {{ $fileName.Get . }}
+  {{- end }}
+  # alterative we can use file reading with encoding the data 
+  message: {{ $.Files.Get "config1.toml" | b64enc }}
+
+
+# ***
+# Subcharts and Global Values 
+
+
+# ***
+
