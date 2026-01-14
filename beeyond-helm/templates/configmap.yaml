@@ -25,8 +25,43 @@ data:
   REALEASE: {{ $.Release.Name | quote }}
   {{- end }}
 
+
+# this section is not related to current project setup with helm
   # Looping with range action 
   toppings: |- # |- marjer in yaml takes multi line sting . this can be a usefule etchnique for embedding big blocks of data inside of your manifest 
     {{- range .Values.learning.pizzaToppings }}
       - {{ . | quote }}
     {{- end }}
+
+# Working with variable 
+# in  helm template a variable is an nameed reference to another object 
+# it follows the $name form
+#  variables are assigned with a special assignment operator :=
+
+# example
+# relname is variable that store the Realease.Name value 
+#  now we can use this value anywhere 
+
+  {{- $relname := .Release.Name -}}
+  release: {{ $relname }}
+  {{- with .Values.backend }}
+  realease_name: {{ $relname | quote }} # .Release.Name  is not in the scope but we still can use the value using variable 
+  {{- end }}
+
+#  variables are particularly useful in range loops . 
+#  they can be use on list-like objects to capture bith the index and the value
+# example
+  {{- range $index, $toppings := .Values.learning.pizzaToppings }}
+  {{ $index }}: {{ $toppings | quote }}
+  {{- end }}
+
+# For data structure that we have both a key and value 
+#  we can use range to get both
+#  example 
+  {{- range $key,$value := .Values.learning.favorite }}
+  {{ $key }}: {{ $value | quote }}
+  {{- end }}
+
+
+  #  variables are  normally not "global"
+  # they are  scoped to the block in which they are declared 

@@ -15,3 +15,6 @@ learning:
     - peppers
     - onions
     - pineapple    
+  favorite:
+    drink: coffee
+    food: pizza
