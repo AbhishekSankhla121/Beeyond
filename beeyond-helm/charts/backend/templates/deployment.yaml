@@ -1,0 +1,9 @@
+
+
+{{- include "app-lib.deployment" (dict
+  "name" .Values.service.name
+  "deployment" .Values.service.deployment
+  "envFrom" .Values.service.data
+  "configMapData" .Values.service.data.configmap
+  "secrets" .Values.service.data.secret
+) }}

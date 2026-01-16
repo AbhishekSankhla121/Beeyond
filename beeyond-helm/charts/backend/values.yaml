@@ -1,0 +1,46 @@
+service:
+  name: backend
+  data:
+    configmap:
+        DATABASE_CONNECTION_STRING:
+          configName: backend-config 
+          key: mongodb://admin:admin@mongo-service:27017/abhishek?authSource=admin
+          # external: true  #optional it will not create the config  , but map value in deployment env
+          #  we need this flag so we can resuse the secrets or configmap without creating them again
+  
+        PORT: 
+          configName: backend-config 
+          key: '5000'
+        FRONTEND_URL: 
+          configName: backend-config 
+          key: http://frontend.beeyond.local:30856
+          # external: true  #optional it will not create the configmap  , but map value in deployment env
+          #  we need this flag so we can resuse the secrets or configmap without creating them again
+    secret:
+        JWT_SECRET:
+          secretName: backend-secret
+          key: super-secret-key-123
+        # Check:
+        #   secretName: backend-secret
+        #   key: super-secret-key-123
+        #   external: true  #optional it will not create the secret  , but map value in deployment env    
+
+  
+  deployment:
+    replicas: 1
+    container:
+      name: beeyond-backend
+      image: abhisheksankhla121/ks-beeyond-backend:latest
+      imagePullPolicy: Always
+  
+  ingress:
+    data:
+      host: backend.beeyond.local
+      path: /
+      pathType: Prefix
+      portNumber: 5000 
+
+  svc:
+    type: ClusterIP
+    port: 5000
+    targetPort: 5000

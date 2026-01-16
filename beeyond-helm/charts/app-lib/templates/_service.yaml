@@ -1,0 +1,19 @@
+{{- define "app-lib.service" }}
+apiVersion: v1
+kind: Service 
+metadata:
+  name: {{ .name }}-service
+spec:
+  type: {{ .data.type }}
+  selector:
+    name: {{ .name }}
+  ports:
+    - port: {{ .data.port }}
+      targetPort: {{ .data.targetPort }}
+{{- if .data.name }}      
+      name: {{ .data.name }}
+{{- end }}
+{{- if .data.protocol }}
+      protocol: {{ .data.protocol }}
+{{- end }}
+{{- end }}

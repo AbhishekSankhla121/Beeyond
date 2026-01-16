@@ -1,0 +1,5 @@
+{{- include "app-lib.ingress" (dict
+  "name" .Values.service.name
+  "namespace" .Values.global.namespace
+  "data" .Values.service.ingress.data
+) }}

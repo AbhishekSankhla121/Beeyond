@@ -10,5 +10,5 @@ spec:
     - ReadWriteMany
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /home/abhishek/Desktop/Beeyond/kubernetes/volume
+    path: /home/abhishek/Desktop/Beeyond
     type: DirectoryOrCreate

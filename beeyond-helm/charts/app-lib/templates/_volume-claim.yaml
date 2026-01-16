@@ -1,0 +1,15 @@
+{{- define "app-lib.persistentVolumeClaim" -}}
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata: 
+  name: {{ .name }}-persistent-volume-claim
+spec:
+  storageClassName: {{ .pvc.spec.storageClassName }}
+  accessModes:
+{{- range .pvc.spec.accessModes }}
+    - {{ . }}
+{{- end }}
+  resources:
+    requests:
+      storage: {{ .pvc.spec.storage }}
+{{- end }}

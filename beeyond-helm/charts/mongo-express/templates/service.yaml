@@ -1,0 +1,4 @@
+{{- include "app-lib.service" (dict
+  "name" .Values.service.name
+  "data" .Values.service.svc
+) }}

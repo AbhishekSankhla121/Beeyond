@@ -1,0 +1,18 @@
+service:
+  name: frontend
+  deployment:
+    container:
+      name: beeyond-frontend
+      image: abhisheksankhla121/ks-beeyond-frontend:latest
+      imagePullPolicy: Always
+    replicas: 3
+  ingress:
+    data:
+      host: frontend.beeyond.local
+      path: /
+      pathType: Prefix
+      portNumber: 3000
+  svc:
+    type: ClusterIP
+    port: 3000
+    targetPort: 3000

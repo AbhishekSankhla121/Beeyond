@@ -1,0 +1,19 @@
+{{- define "app-lib.ingress" }}
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: {{ .name }}-ingress
+spec:
+  rules:
+    - host: {{ .data.host }}
+      http:
+        paths:
+          - path: {{ .data.path }}
+            pathType: {{ .data.pathType }}
+            backend:
+              service:
+                name: {{ .name }}-service
+                port:
+                  number: {{ .data.portNumber }}
+
+{{- end }}

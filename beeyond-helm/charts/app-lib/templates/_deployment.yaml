@@ -1,0 +1,75 @@
+{{- define "app-lib.deployment" }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .name }}-deployment
+spec:
+  replicas: {{ .deployment.replicas | default 1 }}
+  selector:
+    matchLabels:
+      name: {{ .name }}
+  template:
+    metadata:
+      labels:
+        name: {{ .name }}
+    spec:
+      imagePullSecrets:
+        - name: regcred
+{{- if and .deployment.spec .deployment.spec.volumes }}
+      volumes:
+{{- range $key, $value := .deployment.spec.volumes }}
+        - name: {{ $value.name }}
+          persistentVolumeClaim:
+            claimName: {{ $value.claimName }}
+{{- end }}
+{{- end }}
+
+      containers:
+        - name: {{ .deployment.container.name }}
+          image: {{ .deployment.container.image }}
+{{- if .deployment.container.imagePullPolicy }}
+          imagePullPolicy: {{ .deployment.container.imagePullPolicy }}
+{{- end }}
+{{- if .deployment.container.containerPort }}
+          ports:
+            - containerPort: {{ .deployment.container.containerPort }}
+{{- end }}
+{{- if .deployment.container.volumeMounts }}
+          volumeMounts:
+{{- range $key , $value := .deployment.container.volumeMounts }}
+            - mountPath: {{ $value.mountPath }}
+              name: {{ $value.name }}
+              subPath: {{ $value.subPath }}
+{{- end }}
+{{- end }}
+{{- if or .env .configMapData .secrets }}
+          env:
+{{- end }}
+{{- if .configMapData }}
+{{- range $key, $value := .configMapData }}
+            - name: {{ $key }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $value.configName }}
+                  key: {{ $key }}
+{{- end }}
+{{- end }}
+
+{{- if .secrets }}
+{{- range $key, $value := .secrets }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $value.secretName }}
+                  key: {{ $key }}
+{{- end }}
+{{- end }}
+
+{{- if .env }}
+{{- range $key, $value := .env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+{{- end }}
+{{- end }}
+
+{{- end }}

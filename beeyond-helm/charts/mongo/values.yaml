@@ -1,0 +1,40 @@
+service:
+  name: mongo
+  data:
+    configmap:   
+      mongo-url:
+        configName: mongo-config 
+        key: mongo-service
+    secret:
+      MONGO_INITDB_ROOT_USERNAME:
+        secretName: mongo-secret
+        key: admin
+      MONGO_INITDB_ROOT_PASSWORD: 
+        secretName: mongo-secret
+        key: admin
+  svc:
+    type: ClusterIP
+    port: 27017 
+    targetPort: 27017
+    name: mongo
+    protocol: TCP
+
+  statefulset:
+    replicas: 1
+    minReadySeconds: 20
+    spec:
+      terminationGracePeriodSeconds: 20
+      volumes:
+        volume-1:
+          name:  beeyond-storage
+          claimName: beeyond-persistent-volume-claim
+
+    container:
+      name: mongo-container
+      image: mongo 
+      containerPort: 27017
+      volumeMounts:
+        volume-1:
+          mountPath: /data/db
+          name: beeyond-storage
+          subPath: DB

@@ -1,0 +1,79 @@
+{{- define "app-lib.statefulset" }}
+apiVersion: apps/v1
+kind: StatefulSet
+metadata:
+  name: {{ .name }}-statefulset
+spec:
+  selector:
+    matchLabels:
+      name: {{ .name }}
+  serviceName: {{ .name }}
+  replicas: {{ .statefulset.replicas | default 1 }}
+{{- if .statefulset.minReadySeconds }}
+  minReadySeconds: {{ .statefulset.minReadySeconds }}
+{{- end }}
+  template:
+    metadata:
+      labels:
+        name: {{ .name }}
+    spec:
+{{- if .statefulset.terminationGracePeriodSeconds }}
+      terminationGracePeriodSeconds: {{ .statefulset.terminationGracePeriodSeconds }}
+{{- end }}
+{{- if .statefulset.spec.volumes }}
+{{- range $key , $value := .statefulset.spec.volumes  }}
+      volumes:
+        - name: {{ $value.name }}
+          persistentVolumeClaim:
+            claimName: {{ $value.claimName }}
+{{- end }}
+{{- end }}
+      containers:
+        - name: {{ .statefulset.container.name }}
+          image: {{ .statefulset.container.image }}
+          ports:
+{{- if .statefulset.container.containerPort }}
+            - containerPort: {{ .statefulset.container.containerPort }}
+              name: {{ .name }}
+{{- end }}
+
+{{- if .statefulset.container.volumeMounts }}
+          volumeMounts:
+{{- range $key , $value := .statefulset.container.volumeMounts }}
+            - mountPath: {{ $value.mountPath }}
+              name: {{ $value.name }}
+              subPath: {{ $value.subPath }}
+{{- end }}
+{{- end }}
+
+{{- if or .env .configMapData .secrets }}
+          env:
+{{- end }}
+
+{{- if .configMapData }}
+{{- range $key, $value := .configMapData }}
+            - name: {{ $key }}
+              valueFrom:
+                configMapKeyRef:
+                  name: {{ $value.configName }}
+                  key: {{ $key }}
+{{- end }}
+{{- end }}
+
+{{- if .secrets }}
+{{- range $key, $value := .secrets }}
+            - name: {{ $key }}
+              valueFrom:
+                secretKeyRef:
+                  name: {{ $value.secretName }}
+                  key: {{ $key }}
+{{- end }}
+{{- end }}
+
+{{- if .env }}
+{{- range $key, $value := .env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+{{- end }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,27 @@
+global:
+  namespace: beeyond
+
+service:
+  name: beeyond
+
+  pv:
+    spec:
+      storageClassName: beeyond-volume
+
+      capacity:
+        storage: 500Mi
+
+      accessModes:
+        - ReadWriteMany
+
+      persistentVolumeReclaimPolicy: Retain
+
+      hostPath:
+        path: /home/abhishek/Desktop/Beeyond
+        type: DirectoryOrCreate
+  pvc:
+    spec:
+      storageClassName: beeyond-volume
+      accessModes:
+      - ReadWriteMany
+      storage: 300Mi     

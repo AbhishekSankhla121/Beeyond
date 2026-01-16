@@ -1,0 +1,30 @@
+{{- define "app-lib.configmap" -}}
+{{- if include "app-lib.hasInternalData" .configdata | eq "true" }}
+apiVersion: v1
+kind: {{ .kind }}
+metadata:
+  {{- if eq .kind "Secret" }}
+  name: {{ .name }}-secret
+  {{- else }}
+  name: {{ .name }}-config
+  {{- end }}
+{{- if eq .kind "Secret" }}
+{{- if .type }}
+type: {{ .type }}
+{{- end }}
+data:
+  {{- range $key, $value := .configdata }}
+  {{- if not $value.external }}
+  {{ $key }}: {{ $value.key | b64enc | quote }}
+  {{- end }}
+  {{- end }}
+{{- else }}
+data:
+  {{- range $key, $value := .configdata }}
+  {{- if not $value.external }}
+  {{ $key }}: {{ $value.key | quote }}
+  {{- end }}
+  {{- end }}
+{{- end }}
+{{- end }}
+{{- end }}

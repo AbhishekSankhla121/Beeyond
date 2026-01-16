@@ -28,3 +28,15 @@ video link: 📎 https://drive.google.com/file/d/1pL-SnXvZHr3vHz9Cx4hqBAjWrv9Xo6
 <!-- run command -->
 docker compose -f compose.yaml up --build --force-recreate -d
 <!-- check ci pipeline--> 
+
+
+<!-- kubernetes push frontend image with minor vaalue changes -->
+docker build \
+  --build-arg REACT_APP_SERVER_URL=http://backend.beeyond.local:30856 \
+  -t ks-beeyond-frontend \
+  --no-cache \
+  .
+
+docker tag ks-beeyond-frontend:latest abhisheksankhla121/ks-beeyond-frontend:latest
+docker push abhisheksankhla121/ks-beeyond-frontend:latest
+

@@ -1,0 +1,9 @@
+
+
+{{- include "app-lib.statefulset" (dict
+  "name" .Values.service.name
+  "envFrom" .Values.service.data
+  "statefulset" .Values.service.statefulset
+  "configMapData" .Values.service.data.configmap
+  "secrets" .Values.service.data.secret
+) }}

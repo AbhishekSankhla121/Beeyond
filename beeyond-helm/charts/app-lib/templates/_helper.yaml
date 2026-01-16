@@ -1,0 +1,9 @@
+{{- define "app-lib.hasInternalData" -}}
+{{- $has := false -}}
+{{- range $key, $value := . }}
+  {{- if not $value.external }}
+    {{- $has = true -}}
+  {{- end }}
+{{- end }}
+{{- $has -}}
+{{- end }}

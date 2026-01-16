@@ -1,0 +1,5 @@
+
+{{- include "app-lib.persistentVolumeClaim" (dict
+  "name" .Values.service.name
+  "pvc" .Values.service.pvc
+) }}

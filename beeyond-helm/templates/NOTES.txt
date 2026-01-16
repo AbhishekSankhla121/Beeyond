@@ -1,0 +1,6 @@
+
+*** beeyond application is running ***
+
+frontend link: http://frontend.beeyond.local:30856
+backend link: http://backend.beeyond.local:30856
+mongo-express link: http://mongo-express.beeyond.local:30856

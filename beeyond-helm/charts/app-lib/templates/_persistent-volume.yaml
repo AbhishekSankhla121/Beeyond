@@ -1,0 +1,20 @@
+{{- define "app-lib.persistentVolume" -}}
+apiVersion: v1
+kind: PersistentVolume
+metadata:
+  name: {{ .name }}-persistent-volume
+spec:
+  storageClassName: {{ .pv.spec.storageClassName }}
+  capacity:
+    storage: {{ .pv.spec.capacity.storage }}
+  accessModes:
+{{- range .pv.spec.accessModes }}
+    - {{ . }}
+{{- end }}
+  persistentVolumeReclaimPolicy: {{ .pv.spec.persistentVolumeReclaimPolicy }}
+{{- with .pv.spec.hostPath }}
+  hostPath:
+    path: {{ .path }}
+    type: {{ .type }}
+{{- end }}
+{{- end }}

@@ -1,0 +1,5 @@
+{{- include "app-lib.configmap" (dict
+  "name" .Values.service.name
+  "configdata" .Values.service.data.configmap
+  "kind" "ConfigMap"
+) }}
