@@ -13,37 +13,37 @@ Frontend (Git Submodule)
 🌐 Live URLs
 
 Frontend Live URL
-<!-- aws services are super expensive -->
-<!-- 🔗 https://beeyondfrontend.fazalbazar.shop/ -->
+aws services are super expensive now this link is  not working 🔗 https://beeyondfrontend.fazalbazar.shop/
 🔗 https://beeyond-frontend.onrender.com/
 
 Backend Live API URL
-<!-- aws services are super expensive -->
-<!-- 🔗 https://beeyondbackend.fazalbazar.shop/ -->
+aws services are super expensive this link is not working 🔗 https://beeyondbackend.fazalbazar.shop/
 🔗 https://beeyond-backend.onrender.com
 
 WebSocket Live URL
-<!-- aws services are super expensive -->
-<!-- 🔗 wss://beeyondbackend.fazalbazar.shop -->
+aws services are super expensive this link is not working 🔗 wss://beeyondbackend.fazalbazar.shop
 🔗 wss://beeyond-backend.onrender.com/socket.io
 
 🛠️ Application Setup
 🧑‍💻 DevContainer Setup (For Developers)
 
 Part 1
-📎 https://drive.google.com/file/d/1ncAow6zDp_22gvN7oH04mabyrMxopUue/view?usp=sharing
-
+📎 https://youtu.be/pLNJ6chINVc
 Part 2 (Optional)
-📎 https://drive.google.com/file/d/110MGbytl7zUgGaFMGfxQqYONtKTuHCAO/view?usp=sharing
+📎 https://youtu.be/h2iIpnNMxBY
 
 💻 Run Application on Local Machine (Without DevContainer)
 
-📎 https://drive.google.com/file/d/1pL-SnXvZHr3vHz9Cx4hqBAjWrv9Xo6XZ/view?usp=sharing
+📎 https://youtu.be/s82qhh-ynIk
 
 🎥 Demo Videos
 
 CI/CD Pipeline Demo
-▶️ https://drive.google.com/file/d/1_rosET36rg4eyuZnsM8PPqjBN3VLsZrx/view?usp=sharing
+▶️ https://youtu.be/zPELbkG8NGU
 
 Running Application Demo
-▶️ https://drive.google.com/file/d/1ps-p4tLntLqcIm2p5yuEnFlSUCS9trXn/view?usp=sharing
+▶️ https://youtu.be/wDH28syLeEk
+
+
+helm chart working demonstration
+video link: https://youtu.be/5Rb7iFIt8Vg
