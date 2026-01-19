@@ -1,49 +1,69 @@
 🚀 Beeyond – Full Stack Application
-📦 GitHub Repositories
 
-Root Repository (Mono Repo)
+Beeyond is a full-stack MERN application showcasing real-time communication, CI/CD automation, containerized development, and Helm-based Kubernetes deployment.
+
+📦 GitHub Repositories
+🗂 Root Repository (Mono Repo)
+
 👉 https://github.com/AbhishekSankhla121/beeyond
 
-Backend (Git Submodule)
+⚙️ Backend (Git Submodule)
+
 👉 https://github.com/AbhishekSankhla121/beeyond-backend
 
-Frontend (Git Submodule)
+🎨 Frontend (Git Submodule)
+
 👉 https://github.com/AbhishekSankhla121/beeyond-frontend
 
 🌐 Live URLs
+🌍 Frontend
 
-Frontend Live URL
-aws services are super expensive now this link is  not working 🔗 https://beeyondfrontend.fazalbazar.shop/
-🔗 https://beeyond-frontend.onrender.com/
+❌ AWS link (disabled due to high cost):
+https://beeyondfrontend.fazalbazar.shop/
 
-Backend Live API URL
-aws services are super expensive this link is not working 🔗 https://beeyondbackend.fazalbazar.shop/
-🔗 https://beeyond-backend.onrender.com
+✅ Active URL:
+https://beeyond-frontend.onrender.com/
 
-WebSocket Live URL
-aws services are super expensive this link is not working 🔗 wss://beeyondbackend.fazalbazar.shop
-🔗 wss://beeyond-backend.onrender.com/socket.io
+🔧 Backend API
+
+❌ AWS link (disabled due to high cost):
+https://beeyondbackend.fazalbazar.shop/
+
+✅ Active URL:
+https://beeyond-backend.onrender.com
+
+🔌 WebSocket Server
+
+❌ AWS link (disabled due to high cost):
+wss://beeyondbackend.fazalbazar.shop
+
+✅ Active URL:
+wss://beeyond-backend.onrender.com/socket.io
+
+Note: AWS services were stopped because they are currently too expensive to maintain.
 
 🛠️ Application Setup
-🧑‍💻 DevContainer Setup (For Developers)
+🧑‍💻 DevContainer Setup (Recommended for Developers)
 
-Part 1
+Part 1 (Required)
 📎 https://youtu.be/pLNJ6chINVc
+
 Part 2 (Optional)
 📎 https://youtu.be/h2iIpnNMxBY
 
-💻 Run Application on Local Machine (Without DevContainer)
+💻 Run Application Locally (Without DevContainer)
 
 📎 https://youtu.be/s82qhh-ynIk
 
 🎥 Demo Videos
+🔁 CI/CD Pipeline Demo
 
-CI/CD Pipeline Demo
 ▶️ https://youtu.be/zPELbkG8NGU
 
-Running Application Demo
+▶️ Running Application Demo
+
 ▶️ https://youtu.be/wDH28syLeEk
 
+☸️ Helm Chart Working Demonstration
 
-helm chart working demonstration
-video link: https://youtu.be/5Rb7iFIt8Vg
+▶️ https://youtu.be/5Rb7iFIt8Vg
