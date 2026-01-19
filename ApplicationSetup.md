@@ -1,5 +1,4 @@
-video link: 📎 https://drive.google.com/file/d/1ncAow6zDp_22gvN7oH04mabyrMxopUue/view?usp=sharing
-
+video link: 📎 https://youtu.be/pLNJ6chINVc
 # Beeyond-
 ⚙️ Setup Instructions
 Follow these steps to set up the application:

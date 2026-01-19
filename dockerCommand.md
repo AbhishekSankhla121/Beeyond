@@ -1,6 +1,6 @@
 <!-- run application on you local machine -->
 Part 2 (Optional)
-Video link:📎 https://drive.google.com/file/d/110MGbytl7zUgGaFMGfxQqYONtKTuHCAO/view?usp=sharing
+Video link:📎 https://youtu.be/h2iIpnNMxBY
 <!-- change directory to beeyon-frontend -->
 cd beeyond-frontend
 
@@ -23,7 +23,7 @@ docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5
 <!-- Alternative option -->
 💻 Run Application on Local Machine (Without DevContainer)
 
-video link: 📎 https://drive.google.com/file/d/1pL-SnXvZHr3vHz9Cx4hqBAjWrv9Xo6XZ/view?usp=sharing
+video link: 📎  https://youtu.be/s82qhh-ynIk
 <!-- move root or parent directory -->
 <!-- run command -->
 docker compose -f compose.yaml up --build --force-recreate -d
