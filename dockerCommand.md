@@ -6,38 +6,40 @@ Video link:📎 https://youtu.be/h2iIpnNMxBY
 cd beeyond-frontend
 
 ```
-<!-- run this build command to create image -->
+run this build command to create image
 ```bash
 docker buildx build  --build-arg REACT_APP_SERVER_URL=http://localhost:5000 -t beeyond-frontend --no-cache .
 ```
-<!-- run this command to run fronted application -->
+run this command to run fronted application
 ```bash
 docker run -d --name frontend --network beeyond_devcontainer_beeyond-network -p 3000:3000   beeyond-frontend 
 ```
-<!-- change directory to beeyond-backed -->
+change directory to beeyond-backed
 ```bash
 cd ..
 cd beeyond-backend
 ```
-<!-- build image -->
+build image
 ```bash
 docker buildx build -t beeyond-backend --no-cache .
 ```
-<!-- run container -->
+run container
 ```bash
 docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5000:5000 -e PORT='5000' -e DATABASE_CONNECTION_STRING=mongodb://admin:admin@mongo:27017/abhishek?authSource=admin -e FRONTEND_URL=http://localhost:3000 -e JWT_SECRET=super-secret-key-123   beeyond-backend 
 ```
-<!-- Alternative option -->
+Alternative option
 💻 Run Application on Local Machine (Without DevContainer)
 
 video link: 📎  https://youtu.be/s82qhh-ynIk
-<!-- move root or parent directory -->
-<!-- run command -->
+move root or parent directory
+run command
+```bash
 docker compose -f compose.yaml up --build --force-recreate -d
-<!-- check ci pipeline--> 
+```
+check ci pipeline 
 
 
-<!-- kubernetes push frontend image with minor vaalue changes -->
+kubernetes push frontend image with minor vaalue changes
 ```bash
 docker build \
   --build-arg REACT_APP_SERVER_URL=http://backend.beeyond.local:30856 \
@@ -51,3 +53,28 @@ docker tag ks-beeyond-frontend:latest abhisheksankhla121/ks-beeyond-frontend:lat
 docker push abhisheksankhla121/ks-beeyond-frontend:latest
 ```
 
+helm project setup video link: https://youtu.be/5Rb7iFIt8Vg
+
+check kubernetes cluster working properly
+```bash
+kubectl get nodes
+```
+make sure the namespace is default 
+```bash
+kubectl config set-context --current --namespace=default
+```
+
+check helm version 
+```bash
+helm version
+```
+check application manifest is genrate properly without any error
+```bash
+helm install --debug --dry-run beeyond-application beeyond-helm
+```
+
+install application using the helm chart 
+
+```bash
+helm install beeyond-application beeyond-helm
+```
