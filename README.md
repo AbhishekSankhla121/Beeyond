@@ -1,14 +1,15 @@
-References:
-Architecture reference: https://github.com/AbhishekSankhla121/Beeyond/blob/main/Architecture.png
-application setup reference:
-- https://github.com/AbhishekSankhla121/Beeyond/blob/main/ApplicationSetup.md
-- https://github.com/AbhishekSankhla121/Beeyond/blob/main/dockerCommand.
+***References:***
 
-demo and setup links: https://github.com/AbhishekSankhla121/Beeyond/blob/main/SetupvideoLinks.md
+- `Architecture reference`: [Image](https://github.com/AbhishekSankhla121/Beeyond/blob/main/Architecture.png)
+
+***application setup reference:***
+- `Application-setup makrdown file` : [link](https://github.com/AbhishekSankhla121/Beeyond/blob/main/ApplicationSetup.md)
+- `Docker-command makrdown file` : [link](https://github.com/AbhishekSankhla121/Beeyond/blob/main/dockerCommand).
+
+***demo and setup links***: [link](https://github.com/AbhishekSankhla121/Beeyond/blob/main/SetupvideoLinks.md)
 
 
 
-Details:
 # Real-Time Order & Delivery System
 
 A secure, scalable, role-based real-time commerce system built using React, Node.js, MongoDB, and WebSockets.

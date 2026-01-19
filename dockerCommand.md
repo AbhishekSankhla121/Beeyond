@@ -1,7 +1,9 @@
 <!-- run application on you local machine -->
 Part 2 (Optional)
-Video link:📎 https://youtu.be/h2iIpnNMxBY
-<!-- change directory to beeyon-frontend -->
+
+***Video Reference*** : [link](https://youtu.be/h2iIpnNMxBY)
+
+change directory to beeyon-frontend
 ```bash
 cd beeyond-frontend
 
@@ -30,7 +32,8 @@ docker run -d --name backend --network beeyond_devcontainer_beeyond-network -p 5
 Alternative option
 💻 Run Application on Local Machine (Without DevContainer)
 
-video link: 📎  https://youtu.be/s82qhh-ynIk
+***Video Reference*** : [link](https://youtu.be/s82qhh-ynIk)
+
 move root or parent directory
 run command
 ```bash
@@ -52,8 +55,7 @@ docker build \
 docker tag ks-beeyond-frontend:latest abhisheksankhla121/ks-beeyond-frontend:latest
 docker push abhisheksankhla121/ks-beeyond-frontend:latest
 ```
-
-helm project setup video link: https://youtu.be/5Rb7iFIt8Vg
+***helm project setup Video Reference*** : [link](https://youtu.be/5Rb7iFIt8Vg)
 
 check kubernetes cluster working properly
 ```bash
